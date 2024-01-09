@@ -27,10 +27,16 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/history', function () {
-    return view('history');
+    $guestReviews = GuestReview::all();
+    return view('history', compact('guestReviews'));
 })->middleware(['auth', 'verified'])->name('history');
 
 Route::post('/dashboard', [GuestbookController::class, 'store']);
+
+Route::delete('history/{review}', [GuestbookController::class, 'destroy'])->name('review.destroy');
+Route::put('history/{review}', [GuestbookController::class, 'update'])->name('review.update');
+
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
