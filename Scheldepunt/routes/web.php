@@ -26,6 +26,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+Route::get('/history', function () {
+    return view('history');
+})->middleware(['auth', 'verified'])->name('history');
+
 Route::post('/dashboard', [GuestbookController::class, 'store']);
 
 Route::middleware('auth')->group(function () {
