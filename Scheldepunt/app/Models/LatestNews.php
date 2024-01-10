@@ -5,12 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class GuestReview extends Model
+class LatestNews extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'user_name',
+        'title',
+        'img', 
         'content',
     ];
 }

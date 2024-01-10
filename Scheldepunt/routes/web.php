@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Models\GuestReview;
-use App\Http\Controllers\GuestbookController;
+use App\Models\LatestNews;
+use App\Http\Controllers\LatestNewsController;
 
 
 /*
@@ -18,8 +18,8 @@ use App\Http\Controllers\GuestbookController;
 */
 
 Route::get('/', function () {
-    $guestReviews = GuestReview::all();
-    return view('welcome', compact('guestReviews'));
+    $latestNews = LatestNews::all();
+    return view('welcome', compact('latestNews'));
 });
 
 Route::get('/dashboard', function () {
@@ -27,14 +27,15 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/history', function () {
-    $guestReviews = GuestReview::all();
-    return view('history', compact('guestReviews'));
+    $latestNews = LatestNews::all();
+    return view('history', compact('latestNews'));
 })->middleware(['auth', 'verified'])->name('history');
 
-Route::post('/dashboard', [GuestbookController::class, 'store']);
+Route::post('/dashboard', [LatestNewsController::class, 'store']);
 
-Route::delete('history/{review}', [GuestbookController::class, 'destroy'])->name('review.destroy');
-Route::put('history/{review}', [GuestbookController::class, 'update'])->name('review.update');
+Route::delete('latestNews/{latest_news}', [LatestNewsController::class, 'destroy'])->name('latestNews.destroy');
+Route::put('update/content/{latest_news}', [LatestNewsController::class, 'update'])->name('latestNews.update');
+Route::put('update/title/{latest_news}', [LatestNewsController::class, 'updateTitle'])->name('latestNews.updateTitle');
 
 
 

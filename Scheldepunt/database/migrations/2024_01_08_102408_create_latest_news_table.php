@@ -3,13 +3,15 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGuestReviewsTable extends Migration
+class CreateLatestNewsTable extends Migration
 {
     public function up()
     {
-        Schema::create('guest_reviews', function (Blueprint $table) {
+        Schema::create('latest_news', function (Blueprint $table) {
             $table->id();
             $table->string('user_name');
+            $table->string('title');
+            $table->string('img')->nullable();
             $table->text('content');
             $table->timestamps();
         });
@@ -17,6 +19,6 @@ class CreateGuestReviewsTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('guest_reviews');
+        Schema::dropIfExists('latest_news');
     }
 }
