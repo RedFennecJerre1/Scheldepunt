@@ -43,12 +43,13 @@
                 <div class="mt-16">
                 @include('welcome.partials.guest-reviews')
                 </div>
-                </div>
-
-
-
                 
-            </div>
-        </div>
-    </body>
+                <div class="mt-16">
+                @include('welcome.partials.guestbook')
+               </div> 
+            </div>  
+                         
+         </div>
+    </div>
+</body>
 </html>

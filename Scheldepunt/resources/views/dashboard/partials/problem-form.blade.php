@@ -9,7 +9,7 @@
         </p>
     </header>
 
-    <form action="/dashboard" method="POST">
+    <form action="/dashboard/problem" method="POST">
     
     @csrf
     <div>

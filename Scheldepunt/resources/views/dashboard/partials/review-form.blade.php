@@ -9,7 +9,7 @@
         </p>
     </header>
 
-    <form action="/dashboard" method="POST">
+    <form action="/review" method="POST">
     
     @csrf
     <div>
@@ -20,22 +20,22 @@
         <div id="ratings">
         <div id="rating-container">
             <x-input-label for="cleaness_rating" :value="__('Clean Rating: ')" class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-400" />
-            <input type="range" min="1" max="10" value="1" step="0.5" id="cleaness_rating">
+            <input type="range" min="1" max="10" value="1"  id="cleaness_rating">
             <div id="cleaness-number">1</div>
         </div>
         <div id="rating-container">
             <x-input-label for="kindness_rating" :value="__('Kindness Rating: ')" class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-400" />
-            <input type="range" min="1" max="10" value="1" step="0.5" id="kindness_rating">
+            <input type="range" min="1" max="10" value="1"  id="kindness_rating">
             <div id="kindness-number">1</div>
         </div>
         <div id="rating-container">
             <x-input-label for="neighbourhood_rating" :value="__('Neighbourhood Rating: ')" class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-400" />
-            <input type="range" min="1" max="10" value="1" step="0.5" id="neighbourhood_rating">
+            <input type="range" min="1" max="10" value="1"  id="neighbourhood_rating">
             <div id="neighbourhood-number">1</div>
         </div>
         <div id="rating-container">
             <x-input-label for="overal_rating" :value="__('Overal Rating: ')" class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-400" />
-            <input type="range" min="1" max="10" value="1" step="0.5" id="overal_rating">
+            <input type="range" min="1" max="10" value="1"  id="overal_rating">
             <div id="overal-number">1</div>
         </div>
         </div>
