@@ -12,6 +12,10 @@ class GuestReviewSeeder extends Seeder
         GuestReview::create([
             'user_name' => 'John Doe',
             'content' => 'This is a sample guest review.',
+            'cleaness_rating' => '8',
+            'kindness_rating' => '9',
+            'neighbourhood_rating' => '5',
+            'overal_rating' => '9',
         ]);
     }
 }

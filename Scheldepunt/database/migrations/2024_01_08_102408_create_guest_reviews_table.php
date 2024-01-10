@@ -11,6 +11,10 @@ class CreateGuestReviewsTable extends Migration
             $table->id();
             $table->string('user_name');
             $table->text('content');
+            $table->integer('cleaness_rating');
+            $table->integer('kindness_rating');
+            $table->integer('neighbourhood_rating');
+            $table->integer('overal_rating');
             $table->timestamps();
         });
     }

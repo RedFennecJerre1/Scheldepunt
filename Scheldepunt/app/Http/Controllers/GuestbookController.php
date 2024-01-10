@@ -14,11 +14,19 @@ class GuestbookController extends Controller
     $validatedData = $request->validate([
         'user_name' => 'required|string|max:255',
         'content' => 'required|string|max:2000',
+        'cleaness_rating' => 'required|numeric|min:1|max:10',
+        'kindness_rating' => 'required|numeric|min:1|max:10',
+        'neighbourhood_rating' => 'required|numeric|min:1|max:10',
+        'overal_rating' => 'required|numeric|min:1|max:10',
     ]);
 
     GuestReview::create([
         'user_name' => $request->user_name,
         'content' => $request->content,
+        'cleaness_rating' => $request->cleaness_rating,
+        'kindness_rating' => $request->kindness_rating,
+        'neighbourhood_rating' => $request->neighbourhood_rating,
+        'overal_rating' => $request->overal_rating,
     ]);
 
 

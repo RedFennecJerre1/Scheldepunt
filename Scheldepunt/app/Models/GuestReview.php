@@ -12,5 +12,9 @@ class GuestReview extends Model
     protected $fillable = [
         'user_name',
         'content',
+        'cleaness_rating',
+        'kindness_rating',
+        'neighbourhood_rating',
+        'overal_rating',
     ];
 }
