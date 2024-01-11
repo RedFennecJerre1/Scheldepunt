@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Models\LatestNews;
 use App\Http\Controllers\LatestNewsController;
+use App\Models\FaqCategory;
+use App\Models\Faq;
 
 
 /*
@@ -27,6 +29,16 @@ Route::get('/news', function () {
     return view('news', compact('latestNews'));
 })->middleware(['auth', 'verified'])->name('news');
 
+Route::get('/faq', function () {
+    $faqCategories = FaqCategory::all();
+    $faqs = Faq::all();
+    return view('faq.index', compact('faqCategories', 'faqs'));
+})->middleware(['auth', 'verified'])->name('faq.index');
+
+Route::get('/faq/{faqCategory}', function (FaqCategory $faqCategory) {
+    return view('faq.show', compact('faqCategory'));
+})->name('faq.show');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -41,7 +53,6 @@ Route::post('/dashboard', [LatestNewsController::class, 'store']);
 Route::delete('latestNews/{latest_news}', [LatestNewsController::class, 'destroy'])->name('latestNews.destroy');
 Route::put('update/content/{latest_news}', [LatestNewsController::class, 'update'])->name('latestNews.update');
 Route::put('update/title/{latest_news}', [LatestNewsController::class, 'updateTitle'])->name('latestNews.updateTitle');
-
 
 
 Route::middleware('auth')->group(function () {

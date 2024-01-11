@@ -16,6 +16,9 @@
                         {{ __('Edit news') }}
                     </x-nav-link>
                    @endif
+                   <x-nav-link :href="route('faq.index')" :active="request()->routeIs('faq.index')">
+                        {{ __('FAQ') }}
+                    </x-nav-link>
                 </div>
             </div>
 

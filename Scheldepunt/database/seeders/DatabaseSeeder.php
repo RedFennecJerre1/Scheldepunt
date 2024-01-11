@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(GuestbookSeeder::class);
         $this->call(UserSeeder::class);
+        $this->call(FaqSeeder::class);
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([
