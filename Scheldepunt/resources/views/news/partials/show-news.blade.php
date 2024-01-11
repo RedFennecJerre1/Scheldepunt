@@ -7,8 +7,12 @@
                 <p class="text-gray-600 dark:text-gray-400 leading-relaxed">{{ $news->content }}</p>
                 @if (Route::has('login'))
                   @auth
-                  <a href="{{ route('userprofile', $news->user->id) }}" class="mt-4 text-gray-500 dark:text-gray-500 hover:text-blue-500">{{ $news->user->name }} - {{ $news->created_at->diffForHumans() }}</a>            </div>
-                  @else
+                    @if ($news->user->id == Auth::user()->id)
+                        <a href="{{ route('profile.edit') }}" class="mt-4 text-gray-500 dark:text-gray-500 hover:text-blue-500">{{ $news->user->name }} - {{ $news->created_at->diffForHumans() }}</a>
+                    @else
+                        <a href="{{ route('userprofile', $news->user->id) }}" class="mt-4 text-gray-500 dark:text-gray-500 hover:text-blue-500">{{ $news->user->name }} - {{ $news->created_at->diffForHumans() }}</a>            
+                    @endif
+                @else
                   <p  class="mt-4 text-gray-500 dark:text-gray-500 hover:text-blue-500">{{ $news->user->name }} - {{ $news->created_at->diffForHumans() }}</p>            
                   @endauth
                 @endif
