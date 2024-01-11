@@ -30,7 +30,7 @@
     </div>
 
     <div>
-        <x-input-label for="about" :value="__('About Me')" />
+        <x-input-label for="about" :value="__('About me')" />
         <x-text-input id="about" name="about" type="text" class="mt-1 block w-full" :value="old('about')" required autocomplete="about" />
         <x-input-error class="mt-2" :messages="$errors->get('about')" />
     </div>
