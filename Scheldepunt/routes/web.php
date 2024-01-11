@@ -28,6 +28,11 @@ Route::get('/faq/add', function () {
     return view('faq.add', compact('faqCategories'));
 })->middleware(['auth', 'verified'])->name('faq.add');
 
+Route::get('/faq/plus', function () {
+    $faqCategories = FaqCategory::all();
+    return view('faq.plus', compact('faqCategories'));
+})->middleware(['auth', 'verified'])->name('faq.plus');
+
 Route::get('/faq/{faqCategory}', function (FaqCategory $faqCategory) {
     return view('faq.show', compact('faqCategory'));
 })->name('faq.show');
@@ -40,6 +45,7 @@ Route::get('/faq/edit/{faq}', function (Faq $faq) {
 Route::delete('faqCategory/destroy/{faqCategory}', [FaqCategoryController::class, 'destroy'])->name('faqCategory.destroy');
 Route::put('update/faqCategory/{faqCategory}', [FaqCategoryController::class, 'update'])->name('faqCategory.update');
 Route::post('/add/faqCategory', [FaqCategoryController::class, 'store']);
+Route::post('/add/faq', [FaqController::class, 'store']);
 Route::delete('faq/destoy/{faq}', [FaqController::class, 'destroy'])->name('faq.destroy');
 Route::put('update/faq/{faq}', [FaqController::class, 'update'])->name('faq.update');
 
