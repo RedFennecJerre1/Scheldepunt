@@ -10,7 +10,7 @@ class FaqSeeder extends Seeder
 {
     public function run()
     {
-        // Seed the faq_categories table
+
         $categories = [
             ['name' => 'activities'],
             ['name' => 'apartement'],
@@ -21,7 +21,6 @@ class FaqSeeder extends Seeder
             FaqCategory::create($category);
         }
 
-        // Seed the faqs table
         $faqs = [
             [
                 'faq_category_id' => 1,
@@ -32,7 +31,11 @@ class FaqSeeder extends Seeder
                 'faq_category_id' => 2,
                 'question' => 'Is there a dishwasher in the apartement',
                 'answer' => 'Yes, there is a dishwasher available' ],
-            // Add more FAQs as needed
+            [
+                'faq_category_id' => 3,
+                'question' => 'How is the neighbourhood',],
+            [
+                'question' => 'How is the neighbourhood',],
         ];
 
         foreach ($faqs as $faq) {

@@ -10,9 +10,9 @@ class CreateFaqsTable extends Migration
     {
         Schema::create('faqs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('faq_category_id');
+            $table->unsignedBigInteger('faq_category_id')->nullable();
             $table->string('question');
-            $table->text('answer');
+            $table->text('answer')->nullable();
             $table->timestamps();
 
             $table->foreign('faq_category_id')->references('id')->on('faq_categories')->onDelete('cascade');

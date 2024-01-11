@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Faq;
+use App\Models\FaqCategory;
+use Illuminate\Support\Facades\Redirect;
 
 class FaqController extends Controller
 {
     public function index()
 {
     $faqs = Faq::all();
-    return view('faqs.index', compact('faqs'));
+    return view('faq.index', compact('faqs'));
 }
 
 public function create()
@@ -21,8 +24,9 @@ public function create()
 
 public function store(Request $request)
 {
+    
     $faq = Faq::create($request->all());
-    return redirect()->route('faqs.index');
+    return redirect()->route('faq.index');
 }
 
 public function show(Faq $faq)
@@ -39,12 +43,14 @@ public function edit(Faq $faq)
 public function update(Request $request, Faq $faq)
 {
     $faq->update($request->all());
-    return redirect()->route('faqs.index');
+    return redirect()->route('faq.index');
 }
+
+
 
 public function destroy(Faq $faq)
 {
     $faq->delete();
-    return redirect()->route('faqs.index');
+    return redirect()->route('faq.index');
 }
 }

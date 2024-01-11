@@ -21,7 +21,7 @@
             @if (Route::has('login'))
                 <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
                     @auth
-                        <a href="{{ url('/dashboard') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Dashboard</a>
+                        <a href="{{ url('/news') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">News</a>
                     @else
                         <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
 
@@ -32,9 +32,6 @@
                 </div>
             @endif
 
-     <!-- DIT AANPASSEN -->
-     <!-- Guestbook newss Section -->
-
             <div class="max-w-7xl mx-auto p-6 lg:p-8">
                 <div class="flex justify-center">
                    <h2 class="text-3xl font-semibold text-gray-900 dark:text-white">SCHELDEPUNT</h2>
@@ -44,7 +41,6 @@
                 <div>
                                 <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Guest news</h2>
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-                                     <!-- Loop through your guest newss here -->
                                      @foreach($latestNews as $news)
                                        <div class="bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none p-6 mb-6">
                                         <img src="{{ $news->img }}" ></img>
