@@ -51,6 +51,9 @@ Route::put('update/faq/{faq}', [FaqController::class, 'update'])->name('faq.upda
 
 //user profile
 Route::get('/user/{id}', [ProfileController::class, 'show'])->name('userprofile');
+Route::post('/user/{user}/upgrade', [ProfileController::class, 'upgrade'])->name('user.upgrade');
+Route::post('/user/{user}/downgrade', [ProfileController::class, 'downgrade'])->name('user.downgrade');
+
 
 //NEWS
 Route::get('/news', function () {

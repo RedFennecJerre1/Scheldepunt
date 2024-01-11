@@ -17,6 +17,19 @@
                 <p class="card-text">Email: {{ $user->email }}</p>
                 <p class="card-text">Birthday: {{ $user->birthday }}</p>
                 <p class="card-text">About this user: {{ $user->about }}</p>
+                @if(Auth::user()->is_admin)
+                @if($user->is_admin)
+                <form action="{{ route('user.downgrade', $user) }}" method="POST">
+                     @csrf
+                     <x-danger-button class="ms-3"> {{ __('Downgrade from admin') }}</x-danger-button>
+                </form>
+                @else
+                <form action="{{ route('user.upgrade', $user) }}" method="POST">
+                     @csrf
+                     <x-primary-button class="ms-3">{{ __('Upgrade to admin') }}</x-primary-button>
+                </form>
+                @endif
+                @endif
             </div>
         </div>          
     </div>

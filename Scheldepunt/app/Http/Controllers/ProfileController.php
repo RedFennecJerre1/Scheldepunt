@@ -47,11 +47,26 @@ class ProfileController extends Controller
     {
         $user = User::find($id);
         if (!$user) {
-            // Return a 404 error page if the user with the given id is not found
             abort(404);
         }
     return view('userprofile', compact('user'));
     }
+
+    public function upgrade(User $user)
+{
+    $user->is_admin = true;
+    $user->save();
+
+    return redirect()->route('userprofile', $user)->with('success', 'User has been upgraded to an admin successfully.');
+}
+
+public function downgrade(User $user)
+{
+    $user->is_admin = false;
+    $user->save();
+
+    return redirect()->route('userprofile', $user)->with('success', 'User has been downgraded successfully.');
+}
 
 
     public function destroy(Request $request): RedirectResponse
