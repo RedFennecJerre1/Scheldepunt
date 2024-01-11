@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use App\Models\FaqCategory;
 
 class FaqCategoryController extends Controller
 {
     public function index()
 {
     $faqCategories = FaqCategory::all();
-    return view('faq_categories.index', compact('faqCategories'));
+    return view('faq.index', compact('faqCategories'));
 }
 
 public function create()
@@ -21,7 +23,7 @@ public function create()
 public function store(Request $request)
 {
     $faqCategory = FaqCategory::create($request->all());
-    return redirect()->route('faq_categories.index');
+    return redirect()->route('faq.index');
 }
 
 public function show(FaqCategory $faqCategory)
@@ -37,12 +39,12 @@ public function edit(FaqCategory $faqCategory)
 public function update(Request $request, FaqCategory $faqCategory)
 {
     $faqCategory->update($request->all());
-    return redirect()->route('faq_categories.index');
+    return redirect()->route('faq.index');
 }
 
 public function destroy(FaqCategory $faqCategory)
 {
     $faqCategory->delete();
-    return redirect()->route('faq_categories.index');
+    return redirect()->route('faq.index');
 }
 }

@@ -16,6 +16,9 @@
                     @foreach($faqCategories as $faqCategory)
                         <option value="{{ route('faq.show', $faqCategory) }}">{{ $faqCategory->name }}</option>
                      @endforeach
+                     @if(Auth::user()->is_admin)
+                     <option value="{{ route('faq.add') }}">Add category</option>
+                     @endif
                 </select>
             </div>
             </div>

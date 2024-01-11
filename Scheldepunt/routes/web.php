@@ -7,6 +7,7 @@ use App\Http\Controllers\LatestNewsController;
 use App\Models\FaqCategory;
 use App\Models\Faq;
 use App\Http\Controllers\FaqController;
+use App\Http\Controllers\FaqCategoryController;
 
 Route::get('/', function () {
     $latestNews = LatestNews::all();
@@ -21,6 +22,12 @@ Route::get('/faq', function () {
     return view('faq.index', compact('faqCategories', 'faqs'));
 })->middleware(['auth', 'verified'])->name('faq.index');
 
+Route::get('/faq/add', function () {
+    $faqCategories = FaqCategory::all();
+    $faqs = Faq::all();
+    return view('faq.add', compact('faqCategories'));
+})->middleware(['auth', 'verified'])->name('faq.add');
+
 Route::get('/faq/{faqCategory}', function (FaqCategory $faqCategory) {
     return view('faq.show', compact('faqCategory'));
 })->name('faq.show');
@@ -30,6 +37,9 @@ Route::get('/faq/edit/{faq}', function (Faq $faq) {
     return view('faq.edit', compact('faq', 'faqCategories'));
 })->name('faq.edit');
 
+Route::delete('faqCategory/destroy/{faqCategory}', [FaqCategoryController::class, 'destroy'])->name('faqCategory.destroy');
+Route::put('update/faqCategory/{faqCategory}', [FaqCategoryController::class, 'update'])->name('faqCategory.update');
+Route::post('/add/faqCategory', [FaqCategoryController::class, 'store']);
 Route::delete('faq/destoy/{faq}', [FaqController::class, 'destroy'])->name('faq.destroy');
 Route::put('update/faq/{faq}', [FaqController::class, 'update'])->name('faq.update');
 
