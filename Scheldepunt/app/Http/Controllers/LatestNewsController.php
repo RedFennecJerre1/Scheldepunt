@@ -26,7 +26,7 @@ class LatestNewsController extends Controller
     ]);
 
 
-    return redirect('/dashboard')->with('success', 'Your News has been added.');
+    return redirect('/news')->with('success', 'Your News has been added.');
    }
 
    public function update(Request $request, LatestNews $latest_news)
@@ -36,7 +36,7 @@ class LatestNewsController extends Controller
     ]);
 
     $latest_news->update($validatedData);
-    return redirect('/dashboard')->with('success', 'News content updated successfully.');
+    return redirect('/news')->with('success', 'News content updated successfully.');
 }
 
 public function updateTitle(Request $request, LatestNews $latest_news)
@@ -46,13 +46,13 @@ public function updateTitle(Request $request, LatestNews $latest_news)
     ]);
 
     $latest_news->update($validatedData);
-    return redirect('/dashboard')->with('success', 'News title updated successfully.');
+    return redirect('/news')->with('success', 'News title updated successfully.');
 }
 
 
    public function destroy(LatestNews $latest_news)
 {
     $latest_news->delete();
-    return redirect('/dashboard')->with('success', 'News deleted successfully.');
+    return redirect('/news')->with('success', 'News deleted successfully.');
 }
 }

@@ -22,6 +22,11 @@ Route::get('/', function () {
     return view('welcome', compact('latestNews'));
 });
 
+Route::get('/news', function () {
+    $latestNews = LatestNews::all();
+    return view('news', compact('latestNews'));
+})->middleware(['auth', 'verified'])->name('news');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

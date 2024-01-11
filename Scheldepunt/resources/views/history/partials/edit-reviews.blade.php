@@ -16,7 +16,6 @@
                                      <!-- Loop through your guest newss here -->
                                      @php $shownews = false; @endphp
                                      @foreach($latestNews as $latest_news)
-                                     @if($latest_news->user_name == Auth::user()->name)
                                        @php $shownews = true; @endphp
                                        <div class="bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none p-6 mb-6">
                                         
@@ -50,11 +49,10 @@
                                            <x-danger-button class="ms-3"> {{ __('Delete news') }}</x-danger-button>
                                         </form>
                                         </div>
-                                      @endif
                                      @endforeach
                                 @if(!$shownews)
                                 <div class="bg-white dark:bg-gray-800/50 dark:bg-gradient-to-bl from-gray-700/50 via-transparent dark:ring-1 dark:ring-inset dark:ring-white/5 rounded-lg shadow-2xl shadow-gray-500/20 dark:shadow-none p-6 mb-6">
-                                       <p class="text-gray-600 dark:text-gray-400 leading-relaxed">There is no news of this user</p>
+                                       <p class="text-gray-600 dark:text-gray-400 leading-relaxed">There is no news</p>
                                </div>
                                 @endif
                     </div>
