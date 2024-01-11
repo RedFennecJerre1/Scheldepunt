@@ -5,7 +5,13 @@
                 <img src="{{ $news->img }}" ></img>
                 <h2 class="text-gray-800 dark:text-gray-600 leading-relaxed bg-cover bg-center" >{{ $news->title }}</h2>
                 <p class="text-gray-600 dark:text-gray-400 leading-relaxed">{{ $news->content }}</p>
-                <p class="mt-4 text-gray-500 dark:text-gray-500">{{ $news->user_name }} - {{ $news->created_at->diffForHumans() }}</p>
+                @if (Route::has('login'))
+                  @auth
+                  <a href="{{ route('userprofile', $news->user->id) }}" class="mt-4 text-gray-500 dark:text-gray-500 hover:text-blue-500">{{ $news->user->name }} - {{ $news->created_at->diffForHumans() }}</a>            </div>
+                  @else
+                  <p  class="mt-4 text-gray-500 dark:text-gray-500 hover:text-blue-500">{{ $news->user->name }} - {{ $news->created_at->diffForHumans() }}</p>            
+                  @endauth
+                @endif
             </div>
         @endforeach
     </div>

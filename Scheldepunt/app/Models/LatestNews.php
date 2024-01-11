@@ -10,9 +10,14 @@ class LatestNews extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_name',
+        'user_id',
         'title',
         'img', 
         'content',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

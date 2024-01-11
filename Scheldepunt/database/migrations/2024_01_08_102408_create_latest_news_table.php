@@ -9,11 +9,13 @@ class CreateLatestNewsTable extends Migration
     {
         Schema::create('latest_news', function (Blueprint $table) {
             $table->id();
-            $table->string('user_name');
+            $table->unsignedBigInteger('user_id');
             $table->string('title');
             $table->string('img')->nullable();
             $table->text('content');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

@@ -12,11 +12,8 @@
     <form action="/dashboard" method="POST">
     
     @csrf
-    <div>
-            <x-input-label for="user_name" :value="__('Name')" />
-            <x-text-input id="user_name" name="user_name" type="text" class="block w-full p-2 mb-4 bg-gray-100 border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-200 dark:border-gray-700 focus:outline-none focus:bg-white focus:border-blue-500"  :value="old('user_name', Auth::user()->name)"/>
-            <x-input-error class="mt-2" :messages="$errors->get('user_name')" />
-        </div>
+        <x-text-input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}"/>
+
         <div>
             <x-input-label for="title" :value="__('Title')" class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-400" />
             <x-text-input id="title" class="block w-full p-2 mb-4 border border-gray-300 rounded-md dark:text-gray-200 dark:border-gray-600 focus:outline-none focus:bg-white focus:border-blue-500" type="text" name="title" :value="old('title')"  />

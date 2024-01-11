@@ -49,7 +49,8 @@ Route::post('/add/faq', [FaqController::class, 'store']);
 Route::delete('faq/destoy/{faq}', [FaqController::class, 'destroy'])->name('faq.destroy');
 Route::put('update/faq/{faq}', [FaqController::class, 'update'])->name('faq.update');
 
-
+//user profile
+Route::get('/user/{id}', [ProfileController::class, 'show'])->name('userprofile');
 
 //NEWS
 Route::get('/news', function () {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\LatestNews;
+use App\Models\User;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 
@@ -11,20 +12,7 @@ class LatestNewsController extends Controller
 {
   public function store(Request $request)
    {
-    $validatedData = $request->validate([
-        'user_name' => 'required|string|max:255',
-        'title' => 'required|string|max:255',
-        'img' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'content' => 'required|string|max:2000',
-    ]);
-
-    LatestNews::create([
-        'user_name' => $request->user_name,
-        'title' => $request->title,
-        'img' => $request->img,
-        'content' => $request->content,
-    ]);
-
+    $latest_news = LatestNews::create($request->all());
 
     return redirect('/news')->with('success', 'Your News has been added.');
    }

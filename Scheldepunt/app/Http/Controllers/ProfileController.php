@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -42,10 +43,17 @@ class ProfileController extends Controller
 
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
+    public function show($id)
+    {
+        $user = User::find($id);
+        if (!$user) {
+            // Return a 404 error page if the user with the given id is not found
+            abort(404);
+        }
+    return view('userprofile', compact('user'));
+    }
 
-    /**
-     * Delete the user's account.
-     */
+
     public function destroy(Request $request): RedirectResponse
     {
         $request->validateWithBag('userDeletion', [
