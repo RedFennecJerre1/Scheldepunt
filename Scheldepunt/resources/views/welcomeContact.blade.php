@@ -26,7 +26,7 @@
                         <a href="{{ url('/news') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">News</a>
                     @else
                         <a href="{{ route('/') }}" class=" ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">News</a>
-                        <a href="{{ route('/guestcontact') }}" class=" ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Contact</a>
+                        <a href="{{ route('/guestfaq') }}" class=" ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">FAQ</a>
                         <a href="{{ route('login') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
@@ -42,13 +42,28 @@
 
                 <div class="mt-16">
                 <div>
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Contact</h2>
-                                <div class="flex justify-center">
-                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-                @foreach($faqs as $faq)
-                    @include('faq.partials.show-faq')
-                @endforeach
-            </div>
+                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">FAQ</h2>
+                                <h2 class="mt-6 text-l font-semibold text-gray-900 dark:text-white">When logged in you have the possibility to sort with categories.</h2>
+                                <form action="{{ route('contact.store') }}" method="POST">
+        @csrf
+        <div>
+            <x-input-label for="name" :value="__('Name')" class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-400" />
+            <x-text-input id="name" class="block w-full p-2 mb-4 border border-gray-300 rounded-md dark:text-gray-200 dark:border-gray-600 focus:outline-none focus:bg-white focus:border-blue-500" type="text" name="name" :value="old('name')"  />
+            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+        </div>
+                        
+        <div>
+            <x-input-label for="email" :value="__('Email')" class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-400" />
+            <x-text-input id="email" class="block w-full p-2 mb-4 border border-gray-300 rounded-md dark:text-gray-200 dark:border-gray-600 focus:outline-none focus:bg-white focus:border-blue-500" type="text" name="email" :value="old('email')"  />
+            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        </div>
+        <div>
+            <x-input-label for="message" :value="__('Message')" class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-400" />
+            <x-text-input id="message" class="block w-full p-2 mb-4 border border-gray-300 rounded-md dark:text-gray-200 dark:border-gray-600 focus:outline-none focus:bg-white focus:border-blue-500" type="text" name="message" :value="old('message')"  />
+            <x-input-error :messages="$errors->get('message')" class="mt-2" />
+        </div>
+        <x-primary-button class="ms-3">{{ __('Submit') }}</x-primary-button>
+    </form>
 
                             </div>
                     </div>

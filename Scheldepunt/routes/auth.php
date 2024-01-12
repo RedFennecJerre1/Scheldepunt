@@ -10,11 +10,10 @@ use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CountryController;
 use App\Models\LatestNews;
 use App\Models\FaqCategory;
 use App\Models\Faq;
-
+use App\Http\Controllers\ContactController;
 
 Route::get('/', function () {
     $latestNews = LatestNews::all();
@@ -26,6 +25,13 @@ Route::get('/guestfaq', function () {
     $faqs = Faq::all();
     return view('welcomeFAQ', compact('faqCategories', 'faqs'));
 })->name('/guestfaq');
+
+Route::get('/guestcontact', function () {
+    return view('welcomeContact');
+})->name('/guestcontact');
+
+Route::post('/guestcontact', [ContactController::class, 'store'])->name('contact.store');
+
 
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
