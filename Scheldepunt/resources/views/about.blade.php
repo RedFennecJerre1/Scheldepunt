@@ -78,6 +78,13 @@
 
                 <a href="https://tailwindcss.com" class="card-text">https://tailwindcss.com </a>
             </div>
+
+
+
+            <div class="card-body">
+                <h2 class="text-xl font-semibold text-gray-900 dark:text-white">GIT Repo</h2>
+                <a href="https://github.com/RedFennecJerre1/Scheldepunt.git" class="card-text">https://github.com/RedFennecJerre1/Scheldepunt.git </a>
+                </div>
                             
         </div>
                 
