@@ -26,17 +26,64 @@
 
             <div class="max-w-7xl mx-auto p-6 lg:p-8">
                 <div class="flex justify-center">
-                   <h2 class="text-3xl font-semibold text-gray-900 dark:text-white">SCHELDEPUNT</h2>
+                   <h2 class="text-5xl font-semibold text-gray-900 dark:text-white">SCHELDEPUNT</h2>
+                   </div>
+                   <div class="mt-16">
+                    <div>
+                        <h2 class="mt-6 text-2xl font-semibold text-gray-900 dark:text-white">About this site </h2>
+            <div class="card-body">
+                <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Background</h2>
+                <p class="card-text">This is a website created for the 'Booking.com' Apartement of my parents and grand-parents.  </p>
+                <p class="card-text">They need a site where visitors can ask questions about the city and about the apartement. </p>
+                <p class="card-text">It can also be used the update potential visators with news about the city and about the apartement. </p>
+                <p class="card-text">They can also contact the owners with a form. </p>
+            </div>
+            <div class="card-body">
+
+
+                <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Use of the site</h2>
+                <p class="card-text">Now we are on the aboutpage. This page is static and just to give you more information about how this site works. As a visitor of the site who isn't logged in you can visit: News page, FAQ page and Contact page. You can also log in or register with an account.</p>
+                
+                
+                <h2 class="text-l font-semibold text-gray-900 dark:text-white">Visitor without login</h2>
+                <p class="card-text">News page: Visitors can see the news posted by other people. He can see the image, title, content, publisher and date </p>
+                <p class="card-text">FAQ page: Visitors can see all the FAQs asked by people. They can see the category, question and answer of every FAQ  </p>
+                <p class="card-text">Contact page: Visitors can see the contact form. Sending the form doesn't work.</p>
+                <p class="card-text">Login page: Visitors can log in if they have an account. Login happens with email and password. You can remember the login. You can ask for your password if you forgot.  </p>
+                <p class="card-text">Register page: Visitors can register an account. You will have to enter your name, password, birthday, avatar, a short 'about me', password and confirmation. </p>
+                
+                
+                <h2 class="text-l font-semibold text-gray-900 dark:text-white">Logged in Visitor (no admin)</h2>
+                <p class="card-text">News page: Same as before. EXTRA: The name of the editor becomes clickable. You can see the profile of the editor. If the you are the editor of that news, you can change your profile information (see Profile). Otherwise you see the information of the editor. </p>
+                <p class="card-text">FAQ page: Same as before. EXTRA: You can now sort on category. You see only the category you want to see.  </p>
+                <p class="card-text">Contact page: Same as before. EXTRA: you don't have to put your username and email because you are already logged in.</p>
+                <p class="card-text">Dropdown: You can go to your profile or you can logout from the site.   </p>
+                <p class="card-text">Profile: You see all the information about your profile. You can edit all the information. You can change your password. You can delete your account.    </p>
+            
+
+
+
+
+                <h2 class="text-l font-semibold text-gray-900 dark:text-white">Logged in Visitor (admin)</h2>
+                <p class="card-text">News page: Same as before. EXTRA: If you are not the editor of an article. You can click the editor and see his profile. You can promote/demote him to/from admin. Now you can add news as well, you will be the publisher and will be visible for everyone. You can also edit news, you can change the title and content.  You can also delete it. </p>
+                <p class="card-text">FAQ page: Same as before. EXTRA: You can now edit every FAQ. You can change the category, question and answer. You can also delete it.   </p>        
+            </div>
+
+            <div class="card-body">
+                <h2 class="text-xl font-semibold text-gray-900 dark:text-white">Resources</h2>
+                <a href="https://getcomposer.org/" class="card-text">https://getcomposer.org/ </a>
+                <a href="https://laravel.com/docs/8.x/" class="card-text">https://laravel.com/docs/8.x/</a>
+                <a href="https://laracasts.com/series" class="card-text">https://laracasts.com/series </a>
+                <a href="https://2022.laraveldaily.com/post/auth-register-with-two-steps-optional-fields-for-country-and-bio" class="card-text">https://2022.laraveldaily.com/post/auth-register-with-two-steps-optional-fields-for-country-and-bio </a>
+
+                <a href="https://tailwindcss.com" class="card-text">https://tailwindcss.com </a>
+            </div>
+                            
+        </div>
+                
                 </div>
 
-                <div class="mt-16">
-                <div>
-                                <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Guest news</h2>
-                                @include('news.partials.show-news')
 
-                            </div>
-                    </div>
-                </div>
 
 
 

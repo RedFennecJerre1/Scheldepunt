@@ -15,10 +15,17 @@ use App\Models\FaqCategory;
 use App\Models\Faq;
 use App\Http\Controllers\ContactController;
 
+
 Route::get('/', function () {
+    return view('about');
+})->name('/');;
+
+
+Route::get('/guestwelcome', function () {
     $latestNews = LatestNews::all();
     return view('welcome', compact('latestNews'));
-})->name('/');
+})->name('/guestwelcome');
+
 
 Route::get('/guestfaq', function () {
     $faqCategories = FaqCategory::all();

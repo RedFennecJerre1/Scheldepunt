@@ -9,10 +9,15 @@ use App\Models\Faq;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FaqCategoryController;
 
+
 Route::get('/', function () {
+    return view('about');
+})->name('/');
+
+Route::get('/welcome', function () {
     $latestNews = LatestNews::all();
     return view('welcome', compact('latestNews'));
-});
+})->name('/welcome');
 
 
 
