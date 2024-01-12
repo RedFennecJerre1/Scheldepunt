@@ -17,6 +17,24 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
+        <div>
+        <x-input-label for="birthday" :value="__('Birthday')" />
+        <x-text-input id="birthday" name="birthday" type="date" class="mt-1 block w-full" :value="old('birthday')" required autocomplete="birthday" />
+        <x-input-error class="mt-2" :messages="$errors->get('birthday')" />
+    </div>
+
+    <div>
+        <x-input-label for="avatar" :value="__('Avatar')" />
+        <x-text-input id="avatar" name="avatar" type="file" class="mt-1 block w-full" :value="old('avatar')" required autocomplete="avatar" />
+        <x-input-error class="mt-2" :messages="$errors->get('avatar')" />
+    </div>
+
+    <div>
+        <x-input-label for="about" :value="__('About me')" />
+        <x-text-input id="about" name="about" type="text" class="mt-1 block w-full" :value="old('about')" required autocomplete="about" />
+        <x-input-error class="mt-2" :messages="$errors->get('about')" />
+    </div>
+
 
         <!-- Password -->
         <div class="mt-4">

@@ -46,6 +46,23 @@
                 </div>
             @endif
         </div>
+        <div>
+        <x-input-label for="birthday" :value="__('Birthday')" />
+        <x-text-input id="birthday" name="birthday" type="date" class="mt-1 block w-full" :value="old('birthday', $user->birthday)" required autocomplete="birthday" />
+        <x-input-error class="mt-2" :messages="$errors->get('birthday')" />
+    </div>
+
+<!--     <div>
+        <x-input-label for="avatar" :value="__('Avatar')" />
+        <x-text-input id="avatar" name="avatar" type="file" class="mt-1 block w-full" :value="old('avatar', $user->avatar)" required autocomplete="avatar" />
+        <x-input-error class="mt-2" :messages="$errors->get('avatar')" />
+    </div> -->
+
+    <div>
+        <x-input-label for="about" :value="__('About Me')" />
+        <x-text-input id="about" name="about" type="text" class="mt-1 block w-full" :value="old('about', $user->about)" required autocomplete="about" />
+        <x-input-error class="mt-2" :messages="$errors->get('about')" />
+    </div>
 
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>

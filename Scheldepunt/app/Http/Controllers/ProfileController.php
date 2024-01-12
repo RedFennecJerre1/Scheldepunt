@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -31,15 +32,43 @@ class ProfileController extends Controller
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
+        
 
         $request->user()->save();
 
+        $user = Auth::user();
+        $user->birthday = $request->birthday;
+        $user->about = $request->about;
+        $user->save();
+
         return Redirect::route('profile.edit')->with('status', 'profile-updated');
     }
+    public function show($id)
+    {
+        $user = User::find($id);
+        if (!$user) {
+            abort(404);
+        }
+    return view('userprofile', compact('user'));
+    }
 
-    /**
-     * Delete the user's account.
-     */
+    public function upgrade(User $user)
+{
+    $user->is_admin = true;
+    $user->save();
+
+    return redirect()->route('userprofile', $user)->with('success', 'User has been upgraded to an admin successfully.');
+}
+
+public function downgrade(User $user)
+{
+    $user->is_admin = false;
+    $user->save();
+
+    return redirect()->route('userprofile', $user)->with('success', 'User has been downgraded successfully.');
+}
+
+
     public function destroy(Request $request): RedirectResponse
     {
         $request->validateWithBag('userDeletion', [
