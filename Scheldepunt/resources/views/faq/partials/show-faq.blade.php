@@ -7,10 +7,14 @@
         <p class="text-gray-600 dark:text-gray-400 leading-relaxed">{{ $faq->question}}</p>
         <h1 class="mt-4 text-gray-500 dark:text-gray-500">Answer:</h1>
         <p class="mt-4 text-gray-500 dark:text-gray-500">{{ $faq->answer?? 'There is not yet an answer to this question' }}</p>
+        @if (Route::has('login'))
+        @auth
         @if(Auth::user()->is_admin)
         <div class="mt-4">
             <a href="{{ route('faq.edit', $faq) }}" class="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-600">Edit</a>
         </div>
+        @endif
+        @endauth
         @endif
     </div>
 </section>

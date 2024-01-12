@@ -11,7 +11,21 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CountryController;
+use App\Models\LatestNews;
+use App\Models\FaqCategory;
+use App\Models\Faq;
 
+
+Route::get('/', function () {
+    $latestNews = LatestNews::all();
+    return view('welcome', compact('latestNews'));
+})->name('/');
+
+Route::get('/guestfaq', function () {
+    $faqCategories = FaqCategory::all();
+    $faqs = Faq::all();
+    return view('welcomeFAQ', compact('faqCategories', 'faqs'));
+})->name('/guestfaq');
 
 Route::middleware('guest')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])

@@ -15,6 +15,7 @@ Route::get('/', function () {
 });
 
 
+
 //FAQ
 Route::get('/faq', function () {
     $faqCategories = FaqCategory::all();
