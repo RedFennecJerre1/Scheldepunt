@@ -15,5 +15,19 @@ class GuestbookSeeder extends Seeder
             'img' => 'https://via.placeholder.com/150',
             'content' => 'This is an example review content.'
         ]);
+
+        LatestNews::create([
+            'user_id' => 3,
+            'title' => 'Incredible',
+            'img' => 'https://via.placeholder.com/150',
+            'content' => 'I highly recommend this product or service.'
+        ]);
+
+        LatestNews::create([
+            'user_id' => 1,
+            'title' => 'Disappointing',
+            'img' => 'https://via.placeholder.com/150',
+            'content' => 'I had a negative experience with this product or service.'
+        ]);
     }
 }

@@ -66,7 +66,7 @@
 
                 <h2 class="text-l font-semibold text-gray-900 dark:text-white">Logged in Visitor (admin)</h2>
                 <p class="card-text">News page: Same as before. EXTRA: If you are not the editor of an article. You can click the editor and see his profile. You can promote/demote him to/from admin. Now you can add news as well, you will be the publisher and will be visible for everyone. You can also edit news, you can change the title and content.  You can also delete it. </p>
-                <p class="card-text">FAQ page: Same as before. EXTRA: You can now edit every FAQ. You can change the category, question and answer. You can also delete it.   </p>        
+                <p class="card-text">FAQ page: Same as before. EXTRA: You can now edit every FAQ. You can change the category, question and answer. You can also delete it. You can also add, change and delete a category  </p>        
             </div>
 
             <div class="card-body">
